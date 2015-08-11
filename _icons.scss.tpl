@@ -7,13 +7,17 @@
 }
 
 %icon {
+  position: relative;
   font-family: "<%= fontName %>";
+  top: 1px;
+  display: inline-block;
+  line-height: 1;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-style: normal;
   font-variant: normal;
   font-weight: normal;
-  // speak: none; // only necessary if not using the private unicode range (firstGlyph option)
+  speak: none;
   text-decoration: none;
   text-transform: none;
 }
@@ -22,7 +26,7 @@
   $char: "";
 <% _.each(glyphs, function(glyph) { %>
   @if $filename == <%= glyph.name %> {
-    $char: "\u<%= glyph.codepoint %>";
+    $char: "\<%= glyph.codepoint %>";
   }<% }); %>
 
   @return $char;
