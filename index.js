@@ -12,7 +12,8 @@ function gulpWebFont(options) {
     var config = _.extend({
       templateFile: path.join(path.dirname(module.filename), '_icons.scss.tpl'),
       fontPath: options.fontPath,
-      fontName: iconOptions.fontName
+      fontName: iconOptions.fontName,
+      prefix: ''
     }, options);
     var template = fs.readFileSync(config.templateFile);
     // build code points
@@ -22,7 +23,8 @@ function gulpWebFont(options) {
     var content = _.template(template)({
       glyphs: glyphs,
       fontName: config.fontName,
-      fontPath: config.fontPath.replace(/\/?$/, '/')
+      fontPath: config.fontPath.replace(/\/?$/, '/'),
+      prefix: config.prefix
     });
     fs.writeFileSync(config.outFile, content);
   };

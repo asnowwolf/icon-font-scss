@@ -6,7 +6,7 @@
     url('<%= fontPath %><%= fontName %>.ttf') format('truetype');
 }
 
-%icon {
+.<%= prefix %>icon {
   position: relative;
   font-family: "<%= fontName %>";
   top: 1px;
@@ -22,24 +22,7 @@
   text-transform: none;
 }
 
-@function icon-char($filename) {
-  $char: "";
-<% _.each(glyphs, function(glyph) { %>
-  @if $filename == <%= glyph.name %> {
-    $char: "\<%= glyph.codepoint %>";
-  }<% }); %>
-
-  @return $char;
-}
-
-@mixin icon($filename, $insert: before) {
-  @extend %icon;
-  &:#{$insert} {
-    content: icon-char($filename);
-  }
-}
-
-<% _.each(glyphs, function(glyph) { %>.icon-<%= glyph.name %> {
-  @include icon(<%= glyph.name %>);
+<% _.each(glyphs, function(glyph) { %>.<%= prefix %>icon-<%= glyph.name %>:before {
+  content: "\<%= glyph.codepoint %>";
 }
 <% }); %>
