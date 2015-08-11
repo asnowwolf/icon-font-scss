@@ -1,6 +1,6 @@
 {
   "name": "icon-font-scss",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "build _icons.scss from gulp-iconfont's glyphs event",
   "main": "index.js",
   "scripts": {
