@@ -13,7 +13,7 @@ function gulpWebFont(options) {
       templateFile: path.join(path.dirname(module.filename), '_icons.scss.tpl'),
       fontPath: options.fontPath,
       fontName: iconOptions.fontName,
-      prefix: ''
+      prefix: 'fi'
     }, options);
     var template = fs.readFileSync(config.templateFile);
     // build code points

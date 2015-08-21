@@ -7,7 +7,7 @@
     url('<%= fontPath %><%= fontName %>.ttf') format('truetype');
 }
 
-.<%= prefix %>icon {
+.<%= prefix %> {
   position: relative;
   font-family: "<%= fontName %>";
   top: 1px;
@@ -23,7 +23,7 @@
   text-transform: none;
 }
 
-<% _.each(glyphs, function(glyph) { %>.<%= prefix %>icon-<%= glyph.name %>:before {
+<% _.each(glyphs, function(glyph) { %>.<%= prefix %>-<%= glyph.name %>:before {
   content: "\<%= glyph.codepoint %>";
 }
 <% }); %>
